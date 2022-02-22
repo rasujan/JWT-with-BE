@@ -30,8 +30,15 @@ const handleTodoPost = async (req, res) => {
 
 const handleTodoPut = async (req, res) => {
   const { text, color, completed } = req.body;
-  const todo = await put(req.params.id, { text, color, completed });
-  res.json(todo);
+  await put(req.params.id, { text, color, completed });
+  res.json({
+    todo: {
+      text,
+      color,
+      completed,
+      id: req.params.id,
+    }
+  });
 };
 
 const handleTodoDelete = async (req, res) => {
