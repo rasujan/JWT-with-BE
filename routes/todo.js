@@ -6,7 +6,7 @@ const {
   handleTodoPost,
   handleTodoPut,
   handleTodoDelete,
- } = require('../controllers/Todo');
+ } = require('../controllers/todo');
 
 route.get("/", handleTodoGet);
 route.get("/:id", handleTodoGetByID);
