@@ -3,15 +3,13 @@
  * @returns { Promise<void> }
  */
  exports.up = function(knex) {
-  return knex.schema.createTable('users', function (table) {
+  return knex.schema.createTable('income', function (table) {
     table.increments();
-    table.string('name');
-    table.string('address');
-    table.string('phone');
-    table.string('email').unique();
-    table.string('password');
-    table.boolean('active');
-    table.date('date_of_birth');
+    table.string('title');
+    table.float('amount');
+    table.date('date');
+    table.date('created_at');
+    table.date('updated_at');
   })
 };
 
