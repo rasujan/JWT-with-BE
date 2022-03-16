@@ -2,12 +2,14 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const routes = require("./routes");
+const compression = require('compression');
 
 dotenv.config();
 
 const app = express();
 
 app.use(cors());
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', routes);
