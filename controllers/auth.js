@@ -48,6 +48,9 @@ const handleRegister = async (req, res) => {
     date_of_birth,
    };
 
+  if(req?.file?.filename)
+    payload.profile_picture = req.file.filename;
+
   const [id] = await post(payload);
   res.json({
     user: {

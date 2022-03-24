@@ -49,7 +49,13 @@ const handleIncomePut = async (req, res) => {
     date,
     updated_at: new Date().toISOString()
    });
-  res.json(income);
+  res.json({
+    income: {
+      title, 
+      amount, 
+      date,
+    }
+  });
 };
 
 const handleIncomeDelete = async (req, res) => {

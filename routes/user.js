@@ -1,5 +1,5 @@
 const route = require('express').Router();
-const jwt = require('express-jwt');
+const upload = require('../utils/multer');
 
 const { 
   handleUserGet,
@@ -10,7 +10,7 @@ const {
 
 route.get("/", handleUserGet);
 route.get("/:id", handleUserGetByID);
-route.put("/:id", handleUserPut);
+route.put("/:id", upload.single('profile_picture'), handleUserPut);
 route.delete("/:id", handleUserDelete);
 
 module.exports = route;

@@ -25,7 +25,8 @@ const handleUserPut = async (req, res) => {
     active,
     date_of_birth,
    } = req.body;
-  const user = await put(req.params.id, { 
+
+  const payload = { 
     name,
     address,
     phone,
@@ -33,8 +34,23 @@ const handleUserPut = async (req, res) => {
     password,
     active,
     date_of_birth,
-   });
-  res.json(user);
+  };
+
+  if(req?.file?.filename)
+    payload.profile_picture = req.file.filename;
+
+  const user = await put(req.params.id, payload);
+  res.json({
+    user: {
+      name,
+      address,
+      phone,
+      email,
+      password,
+      active,
+      date_of_birth,
+    }
+  });
 };
 
 const handleUserDelete = async (req, res) => {

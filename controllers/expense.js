@@ -49,7 +49,13 @@ const handleExpensePut = async (req, res) => {
     date,
     updated_at: new Date().toISOString()
    });
-  res.json(expense);
+  res.json({
+    expense: {
+      title, 
+      amount, 
+      date,
+    }
+  });
 };
 
 const handleExpenseDelete = async (req, res) => {

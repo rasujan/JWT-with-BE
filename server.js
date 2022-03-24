@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', routes);
 
 app.use(express.static('public'))
+app.use(express.static('uploads'))
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`App running on ${process.env.PORT || 3001}`);
